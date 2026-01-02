@@ -1,0 +1,32 @@
+:root {
+  --navy: #1e3a8a;
+  --navy-dark: #0b1f4d;
+  --text: #111827;
+  --muted: #6b7280;
+  --bg: #f3f4f6;
+  --line: #e5e7eb;
+  --radius: 14px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  color: var(--text);
+  background: #fff;
+  line-height: 1.6;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
