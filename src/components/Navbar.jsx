@@ -8,7 +8,8 @@ export default function Navbar() {
 
         <nav className="navbar-links">
           <a href="#services">Services</a>
-          <a href="#how">How It Works</a>
+          <a href="#how-it-works">How It Works</a>
+
           <a href="#about">About</a>
           <a href="#post">Post a Job</a>
           <a href="#contact" className="navbar-btn">

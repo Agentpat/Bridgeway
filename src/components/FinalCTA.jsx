@@ -1,19 +1,38 @@
-import React from "react";
+import React, { useState } from "react";
 import "../styles/FinalCTA.css";
+import PostJobModal from "./PostJobModal";
 
 const FinalCTA = () => {
-  return (
-    <section className="final-cta">
-      <div className="final-cta-container">
-        <h2>Ready to Get Started?</h2>
-        <p>Let us take the work off your plate.</p>
+  const [isPostJobOpen, setIsPostJobOpen] = useState(false);
 
-        <div className="final-cta-actions">
-          <button className="cta-primary">Post a Job</button>
-          <button className="cta-secondary">Book a Call</button>
+  return (
+    <>
+      <section className="final-cta">
+        <div className="final-cta-container">
+          <h2>Ready to Get Started?</h2>
+          <p>Let us take the work off your plate.</p>
+
+          <div className="final-cta-actions">
+            <button
+              className="cta-primary"
+              onClick={() => setIsPostJobOpen(true)}
+            >
+              Post a Job
+            </button>
+
+            <button className="cta-secondary">
+              Book a Call
+            </button>
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
+
+      {/* Post a Job Modal */}
+      <PostJobModal
+        isOpen={isPostJobOpen}
+        onClose={() => setIsPostJobOpen(false)}
+      />
+    </>
   );
 };
 
