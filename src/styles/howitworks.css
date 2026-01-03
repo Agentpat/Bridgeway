@@ -9,6 +9,14 @@
   padding: 0 24px;
 }
 
+.how-heading {
+  text-align: center;
+  font-size: 32px;
+  font-weight: 600;
+  color: #0f172a;
+  margin-bottom: 8px;
+}
+
 .how-subtitle {
   text-align: center;
   font-size: 18px;

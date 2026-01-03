@@ -7,8 +7,11 @@ import step3 from "../assets/images/step3.png";
 
 const HowItWorks = () => {
   return (
-    <section className="how-it-works">
+    <section className="how-it-works" id="how-it-works">
       <div className="how-container">
+
+        {/* SECTION HEADING */}
+        <h2 className="how-heading">How It Works</h2>
         <p className="how-subtitle">Simple. Effective. Managed.</p>
 
         <div className="how-grid">
