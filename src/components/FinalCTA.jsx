@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "../styles/FinalCTA.css";
 import PostJobModal from "./PostJobModal";
+import { openCalendly } from "../utils/openCalendly";
 
 const FinalCTA = () => {
   const [isPostJobOpen, setIsPostJobOpen] = useState(false);
@@ -20,7 +21,7 @@ const FinalCTA = () => {
               Post a Job
             </button>
 
-            <button className="cta-secondary">
+            <button className="secondary-btn" onClick={openCalendly}>
               Book a Call
             </button>
           </div>

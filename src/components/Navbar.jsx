@@ -12,7 +12,7 @@ export default function Navbar() {
 
           <a href="#about">About</a>
           <a href="#post">Post a Job</a>
-          <a href="#contact" className="navbar-btn">
+          <a href="/contact" className="navbar-btn">
             Contact Us
           </a>
         </nav>

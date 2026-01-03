@@ -3,6 +3,7 @@ import Navbar from "./Navbar";
 import heroImage from "../assets/images/hero.jpg";
 import { useState } from "react";
 import PostJobModal from "./PostJobModal";
+import { openCalendly } from "../utils/openCalendly";
 
 export default function Hero() {
   const [isPostJobOpen, setIsPostJobOpen] = useState(false);
@@ -37,7 +38,9 @@ export default function Hero() {
               Post a Job
             </button>
 
-            <button className="secondary-btn">Book a Call</button>
+            <button className="secondary-btn" onClick={openCalendly}>
+              Book a Call
+            </button>
           </div>
         </div>
       </section>
