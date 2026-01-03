@@ -1,0 +1,41 @@
+.overlay-nav {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: 10;
+  background: transparent;
+}
+
+.navbar-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 22px 32px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar-logo {
+  font-size: 20px;
+  font-weight: 600;
+  color: #ffffff;
+}
+
+.navbar-links {
+  display: flex;
+  gap: 26px;
+  align-items: center;
+}
+
+.navbar-links a {
+  font-size: 14px;
+  color: #f9fafb;
+}
+
+.navbar-btn {
+  background: #1e3a8a;
+  color: #fff !important;
+  padding: 10px 18px;
+  border-radius: 8px;
+  font-size: 13px;
+}
