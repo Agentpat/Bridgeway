@@ -88,6 +88,25 @@
   opacity: 0.95;
 }
 
+.success-state {
+  text-align: center;
+  padding: 40px 0;
+}
+
+.success-state h2 {
+  font-size: 26px;
+  font-weight: 600;
+  color: #0f172a;
+  margin-bottom: 12px;
+}
+
+.success-state p {
+  font-size: 16px;
+  color: #64748b;
+  margin-bottom: 28px;
+  line-height: 1.6;
+}
+
 /* Mobile */
 @media (max-width: 600px) {
   .form-row {
