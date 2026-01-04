@@ -3,14 +3,57 @@ import "./PostJobModal.css";
 
 const PostJobModal = ({ isOpen, onClose }) => {
   const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
+
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    description: "",
+    timeline: "",
+    budget: "",
+  });
 
   if (!isOpen) return null;
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  const handleChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value,
+    });
+  };
 
-    // Later: send data to Formspree / backend
-    setSubmitted(true);
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setLoading(true);
+    setError("");
+
+    try {
+      const res = await fetch("http://localhost:5000/api/jobs", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (!res.ok) {
+        throw new Error("Failed to submit job");
+      }
+
+      setSubmitted(true);
+      setFormData({
+        name: "",
+        email: "",
+        description: "",
+        timeline: "",
+        budget: "",
+      });
+    } catch (err) {
+      setError("Something went wrong. Please try again.");
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -30,23 +73,46 @@ const PostJobModal = ({ isOpen, onClose }) => {
             <form className="post-job-form" onSubmit={handleSubmit}>
               <div className="form-group">
                 <label>Full Name</label>
-                <input type="text" required />
+                <input
+                  type="text"
+                  name="name"
+                  value={formData.name}
+                  onChange={handleChange}
+                  required
+                />
               </div>
 
               <div className="form-group">
                 <label>Email Address</label>
-                <input type="email" required />
+                <input
+                  type="email"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleChange}
+                  required
+                />
               </div>
 
               <div className="form-group">
                 <label>What do you need done?</label>
-                <textarea rows="4" required />
+                <textarea
+                  name="description"
+                  rows="4"
+                  value={formData.description}
+                  onChange={handleChange}
+                  required
+                />
               </div>
 
               <div className="form-row">
                 <div className="form-group">
                   <label>Timeline</label>
-                  <select required>
+                  <select
+                    name="timeline"
+                    value={formData.timeline}
+                    onChange={handleChange}
+                    required
+                  >
                     <option value="">Select</option>
                     <option>ASAP</option>
                     <option>1–2 weeks</option>
@@ -57,7 +123,12 @@ const PostJobModal = ({ isOpen, onClose }) => {
 
                 <div className="form-group">
                   <label>Budget Range</label>
-                  <select required>
+                  <select
+                    name="budget"
+                    value={formData.budget}
+                    onChange={handleChange}
+                    required
+                  >
                     <option value="">Select</option>
                     <option>Under $500</option>
                     <option>$500 – $1,500</option>
@@ -67,8 +138,10 @@ const PostJobModal = ({ isOpen, onClose }) => {
                 </div>
               </div>
 
-              <button type="submit" className="submit-btn">
-                Submit Job
+              {error && <p className="form-error">{error}</p>}
+
+              <button type="submit" className="submit-btn" disabled={loading}>
+                {loading ? "Submitting..." : "Submit Job"}
               </button>
             </form>
           </>
@@ -76,8 +149,8 @@ const PostJobModal = ({ isOpen, onClose }) => {
           <div className="success-state">
             <h2>Thank you!</h2>
             <p>
-              Your request has been received. We’ll review it and get back to
-              you shortly.
+              Your request has been received.  
+              We’ll review it and get back to you shortly.
             </p>
 
             <button className="submit-btn" onClick={onClose}>
