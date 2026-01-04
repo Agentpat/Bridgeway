@@ -1,0 +1,37 @@
+.admin-page {
+  padding: 40px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.admin-page h1 {
+  margin-bottom: 30px;
+}
+
+.jobs-table {
+  display: grid;
+  gap: 20px;
+}
+
+.job-card {
+  background: #fff;
+  border: 1px solid #e5e5e5;
+  border-radius: 8px;
+  padding: 20px;
+}
+
+.job-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.job-date {
+  font-size: 12px;
+  color: #777;
+}
+
+.job-desc {
+  margin-top: 10px;
+  color: #333;
+}
